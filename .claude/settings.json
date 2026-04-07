@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\\\gitf\\\\FTech AI Factory\")",
+      "Bash(cmd /c \"dir \\\\\"c:\\\\gitf\\\\FTech AI Factory\\\\\"\")"
+    ]
+  }
+}
