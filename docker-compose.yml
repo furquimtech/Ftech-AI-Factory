@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  # ── PostgreSQL + pgvector ──────────────────────────────────────────────────
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ftechai
+      POSTGRES_PASSWORD: ftechai
+      POSTGRES_DB: ftechai_factory
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # ── FTech AI Factory API + Orchestrator ──────────────────────────────────
+  api:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://ftechai:ftechai@db:5432/ftechai_factory
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  pgdata:

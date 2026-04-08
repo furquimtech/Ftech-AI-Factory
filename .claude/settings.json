@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(dir \"c:\\\\gitf\\\\FTech AI Factory\")",
-      "Bash(cmd /c \"dir \\\\\"c:\\\\gitf\\\\FTech AI Factory\\\\\"\")"
+      "Bash(cmd /c \"dir \\\\\"c:\\\\gitf\\\\FTech AI Factory\\\\\"\")",
+      "Bash(cmd /c \"dir /s /b \\\\\"c:\\\\gitf\\\\FTech AI Factory\\\\\" | findstr /v __pycache__\")"
     ]
   }
 }

@@ -1,9 +1,12 @@
+.env
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
 .pytest_cache/
-.mypy_cache/
+logs/*.log
+logs/*.log.*
+*.egg-info/
+dist/
+build/
 .venv/
 venv/
-.env
-logs/
-!logs/.gitkeep
